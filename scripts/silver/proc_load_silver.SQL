@@ -150,7 +150,6 @@ BEGIN
 				 ELSE sls_price
 			END AS sls_price
 		FROM bronze.crm_sales_details
-		WHERE sls_cust_id NOT IN (SELECT cst_id FROM silver.crm_cust_info)
 		;
 		SET @end_time = GETDATE();
 		PRINT '>> Load Duration: ' + CAST (DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
